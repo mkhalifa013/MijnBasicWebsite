@@ -5,6 +5,7 @@ import Overzicht from "./Overzicht";
 import Login from "./Login";
 import Header from "../Structuur/Header";
 import Footer from "../Structuur/Footer";
+import { callApi } from "../../utils";
 
 const App = () => {
     return (
@@ -13,7 +14,9 @@ const App = () => {
         <Switch>  
         <Route  exact path="/" component={Home} />
         <Route path="/overzicht" component={Overzicht} />
-        <Route path="/login" component={Login} />  
+        <Route path="/login">
+          <Login />
+          </Route>  
         </Switch>
         <Footer />
       </BrowserRouter>
