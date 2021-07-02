@@ -4,9 +4,9 @@ function Footer() {
   return (
     <footer className="blog-footer">
       <div className="container">
-      <p>This is footer</p>
+        <p>This is footer</p>
       </div>
-      </footer>
+    </footer>
   );
 }
 

@@ -1,18 +1,16 @@
-
-
-const API_URL = "http://localhost:1337";
-
+// const API_URL = "http://localhost:1337";
 export const callApi = async (path, method, body) => {
-  const response = await fetch(`${API_URL}${path}`, {
+  let headers = {
+    "content-type": "application/json",
+  };
+
+  const response = await fetch(`${path}`, {
     method,
-    headers: {
-      "content-type": "application/json"
-    },
+    headers,
     credentials: "include",
-    body: JSON.stringify(body)
-  })
+    body: JSON.stringify(body),
+  });
   const data = await response.json();
 
   return data;
-}
-
+};
