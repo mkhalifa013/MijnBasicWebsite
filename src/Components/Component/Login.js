@@ -16,7 +16,7 @@ const Login = () => {
 
   useEffect(() => {
     if (currentUser.isAuthenticated) {
-      history.push("/");
+      history.push("/overzicht");
     }
   }, [currentUser, history]);
 
@@ -34,14 +34,14 @@ const Login = () => {
       }
 
       dispatch({ type: "LOGIN", user: data.user });
-      history.push("/");
+      history.push("/overzicht");
     } catch (err) {
       setErrorMsg(err);
     }
   };
 
   return (
-    <div className="row align-items-center g-lg-5 container">
+    <div className="mt-5 mb-5 row align-items-center g-lg-5 container">
       <div className="col-lg-7 text-center text-lg-start">
         <h1 className="display-4 fw-bold lh-1 mb-3">
           Vertically centered hero sign-up form
@@ -83,7 +83,7 @@ const Login = () => {
             </label>
           </div>
           <button className="w-100 btn btn-lg btn-primary" type="submit">
-            Sign up
+            Login
           </button>
           <hr className="my-4" />
           <small className="text-muted">

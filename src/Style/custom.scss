@@ -1,5 +1,35 @@
 // Override default variables before the import
-$body-bg: #000;
+$body-bg: rgb(211, 213, 210);
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
+
+.card
+{
+    width: 250px;
+}
+
+.animeimage
+{
+	width: 250px;
+	height: 250px;
+}
+
+.row.justify-content-center{
+	float:right;
+}
+
+.logo{
+	width: 109px;
+	height: 88px;
+}
+
+.user{
+	width: 40px;
+	padding: 0;
+	margin: 0;
+}
+
+.container.ctn{
+	margin-top: 140px !important;
+}
