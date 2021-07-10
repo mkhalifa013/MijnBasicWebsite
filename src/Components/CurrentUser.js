@@ -21,7 +21,6 @@ export const CurrentUserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await callApi("/users/me", "GET");
-      console.log("dataa user", user);
       if (user.id) {
         dispatch({ type: "LOGIN", user });
         return;
