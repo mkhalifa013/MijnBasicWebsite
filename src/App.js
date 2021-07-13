@@ -1,13 +1,13 @@
 import React from "react";
-import MyComponent from "./Components/Component/Myapp";
-import './Style/custom.scss'
+import Router from "./Core/Router";
+import "./Style/custom.scss";
 
-import { CurrentUserProvider } from "./Components/CurrentUser";
+import { CurrentUserProvider } from "./Context/CurrentUser";
 
 export default function App() {
   return (
     <CurrentUserProvider>
-      <MyComponent />
+      <Router />
     </CurrentUserProvider>
   );
 }

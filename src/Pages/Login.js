@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useCurrentUser, useDispatchCurrentUser } from "../CurrentUser";
+import { useCurrentUser, useDispatchCurrentUser } from "../Context/CurrentUser";
 import { useHistory } from "react-router-dom";
-import { callApi } from "../../utils";
+import { callApi } from "../utils";
 
 //een simple pagina
 const Login = () => {
@@ -11,8 +11,6 @@ const Login = () => {
   const passwordRef = useRef();
   const history = useHistory();
   const [errorMsg, setErrorMsg] = useState(null);
-
-  console.log("S >>>", currentUser);
 
   useEffect(() => {
     if (currentUser.isAuthenticated) {

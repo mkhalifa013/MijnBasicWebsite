@@ -1,4 +1,10 @@
-import React, { useEffect, useReducer, useContext, createContext } from "react";
+import React, {
+  useEffect,
+  useState,
+  useReducer,
+  useContext,
+  createContext,
+} from "react";
 import { callApi } from "../utils";
 
 const CurrentUserStateContext = createContext();
@@ -17,22 +23,34 @@ const reducer = (state, action) => {
 
 export const CurrentUserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { isAuthenticated: false });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
       const user = await callApi("/users/me", "GET");
       if (user.id) {
         dispatch({ type: "LOGIN", user });
+        setIsLoading(false);
+
         return;
       }
     };
 
-    fetchUser();
+    console.log("USER ME");
+    setIsLoading(true);
+
+    setTimeout(() => {
+      fetchUser();
+    }, 1000);
   }, []);
+
+  const { isAuthenticated, ...user } = state;
 
   return (
     <CurrentUserDispatchContext.Provider value={dispatch}>
-      <CurrentUserStateContext.Provider value={state}>
+      <CurrentUserStateContext.Provider
+        value={{ isLoading, isAuthenticated, user }}
+      >
         {children}
       </CurrentUserStateContext.Provider>
     </CurrentUserDispatchContext.Provider>

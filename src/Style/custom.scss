@@ -1,35 +1,63 @@
 // Override default variables before the import
 $body-bg: rgb(211, 213, 210);
+$navbar-height: 104px;
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 
-.card
-{
-    width: 250px;
+// .card {
+//   width: 250px;
+// }
+
+.page {
+  margin-top: $navbar-height;
 }
 
-.animeimage
-{
-	width: 250px;
-	height: 250px;
+.animeimage {
+  //width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
 
-.row.justify-content-center{
-	float:right;
+.row.justify-content-center {
+  float: right;
 }
 
-.logo{
-	width: 109px;
-	height: 88px;
+.logo {
+  height: 50px;
 }
 
-.user{
-	width: 40px;
-	padding: 0;
-	margin: 0;
+.user {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  padding: 0;
+  margin-left: 4px;
 }
 
-.container.ctn{
-	margin-top: 140px !important;
+.container.ctn {
+  margin-top: 140px !important;
+}
+
+/* ==========================================================================
+Loader
+========================================================================== */
+.loader-wrapper {
+  @extend .d-flex, .align-items-center, .justify-content-center;
+
+  bottom: 0;
+  flex-direction: column;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $zindex-fixed;
+}
+
+.loader {
+  @extend .d-flex, .align-items-center, .justify-content-center, .flex-column;
+}
+
+.loader-title {
+  @extend .text-white, .mt-2;
 }
