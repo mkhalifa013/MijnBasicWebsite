@@ -16,5 +16,10 @@ export default () => (
         Overzicht
       </NavLink>
     </li>
+    <li className="nav-item">
+      <NavLink className="nav-link" activeClassName="active" to="/register">
+        register
+      </NavLink>
+    </li>
   </ul>
 );

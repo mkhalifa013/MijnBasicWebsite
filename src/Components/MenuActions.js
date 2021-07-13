@@ -22,12 +22,12 @@ export default ({ user, isLoading, handleLogout }) => {
             {user.profi && (
               <img
                 src={`http://localhost:1337${user.profi.url}`}
-                className="user mb-2 rounded-circle"
+                className="user mb-2 rounded-circle float-end"
                 alt="profile-image"
               />
             )}
 
-            <button className="btn btn-danger" onClick={handleLogout}>
+            <button className="btn btn-danger float-end" onClick={handleLogout}>
               Logout
             </button>
           </>
