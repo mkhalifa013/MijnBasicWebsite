@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ClipLoader from "react-spinners/ClipLoader";
 
 /*
@@ -20,11 +21,12 @@ export default ({ user, isLoading, handleLogout }) => {
             <p className="text-light m-0 p-1 float-end">{user.username}</p>
 
             {user.profi && (
-              <img
-                src={`http://localhost:1337${user.profi.url}`}
-                className="user mb-2 rounded-circle float-end"
-                alt="profile-image"
-              />
+              <Link to="/user"><img
+              src={user.profi.url}
+              className="user mb-2 rounded-circle float-end"
+              alt="profile-image"
+            /></Link>
+              
             )}
 
             <button className="btn btn-danger float-end" onClick={handleLogout}>

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink} from "react-router-dom";
 import { callApi } from "../utils";
 
 // Hooks
@@ -11,9 +12,10 @@ function Footer() {
     <footer className="bg-light text-center text-lg-start">
       <div className="text-center p-3">
         {logo && (
-          <a className="text-dark" href="">
+          
+          <NavLink className="nav-link" className="text-dark" to="/">
             {logo.sitename}
-          </a>
+            </NavLink>
         )}
       </div>
     </footer>

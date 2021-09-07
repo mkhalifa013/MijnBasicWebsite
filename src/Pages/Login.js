@@ -22,10 +22,10 @@ const Login = () => {
     e.preventDefault();
     setErrorMsg(null);
     try {
-      const data = await callApi("/auth/local", "POST", {
+      const data = await callApi("/auth/local", "POST",{
         identifier: emailRef.current.value,
         password: passwordRef.current.value,
-      });
+      },false);
 
       if (!data.user) {
         throw "Cannot login. Please try again.";

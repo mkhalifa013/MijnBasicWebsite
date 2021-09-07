@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useCurrentUser, useDispatchCurrentUser } from "../Context/CurrentUser";
 import { callApi } from "../utils";
 
@@ -15,13 +15,15 @@ const Header = () => {
   const dispatch = useDispatchCurrentUser();
   const { user, isLoading: isUserLoading, isAuthenticated } = useCurrentUser();
   const { isLoading, logo, error } = useLogo();
+  const history = useHistory();
 
   const handleLogout = async () => {
     await callApi("/logout", "POST");
     dispatch({ type: "LOGOUT" });
+    history.push("/home");
   };
 
-  if (isLoading) {
+  if (isLoading ) {
     return (
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div className="container">
@@ -41,7 +43,7 @@ const Header = () => {
               isLoading={isUserLoading}
             />
 
-            {Object.keys(user).length > 0 && !isAuthenticated && (
+            {Object.keys(user).length < 0 && !isAuthenticated && (
               <NavLink
                 className="nav-link"
                 activeClassName="active"

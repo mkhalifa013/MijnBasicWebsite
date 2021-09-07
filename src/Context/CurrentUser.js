@@ -36,7 +36,7 @@ export const CurrentUserProvider = ({ children }) => {
       }
     };
 
-    console.log("USER ME");
+  
     setIsLoading(true);
 
     setTimeout(() => {
@@ -44,12 +44,43 @@ export const CurrentUserProvider = ({ children }) => {
     }, 1000);
   }, []);
 
+  async function retriggerGetUser (){
+    setIsLoading(true);
+
+    const user = await callApi("/users/me", "GET");
+    if (user.id) {
+      dispatch({ type: "LOGIN", user });
+      setIsLoading(false);
+
+      return;
+    }
+  }
+
+  const deleteProfilePicture = async (profi) => {
+    // DELETE request using fetch with async/await
+    await callApi(`upload/files/${profi}`, "DELETE");
+
+    retriggerGetUser()
+  };
+
+  const addProfilePicture = async (data) => {
+    await callApi("/upload", "post", data, true)
+    .then((response) => JSON.stringify(response))
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
+
+    
+    retriggerGetUser()
+  }
+
+  
+
   const { isAuthenticated, ...user } = state;
 
   return (
     <CurrentUserDispatchContext.Provider value={dispatch}>
       <CurrentUserStateContext.Provider
-        value={{ isLoading, isAuthenticated, user }}
+        value={{ isLoading, isAuthenticated, retriggerGetUser, deleteProfilePicture, addProfilePicture, user }}
       >
         {children}
       </CurrentUserStateContext.Provider>

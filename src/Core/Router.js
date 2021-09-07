@@ -8,10 +8,12 @@ import Overzicht from "../Pages/Overzicht";
 import Login from "../Pages/Login";
 import DetailPage from "../Pages/Detailpagina";
 import Reg from "../Pages/Register";
+import UserPage from "../Pages/Userpage";
 
 // Components
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+
 
 const Router = () => {
   return (
@@ -22,6 +24,7 @@ const Router = () => {
         <Route exact path="/" component={Home} />
         <Route path="/overzicht" component={Overzicht} />
         <Route path="/register" component={Reg} />
+        <Route path="/user" component={UserPage} />
         <Route path="/login">
           <Login />
         </Route>

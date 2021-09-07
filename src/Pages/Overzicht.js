@@ -1,6 +1,5 @@
 // Dependencies
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 // Components
@@ -14,6 +13,7 @@ const Overzicht = () => {
   const { name } = useParams();
   const { isLoading, animes, removeAnime, error } = useAnimes([]);
 
+  
   if (isLoading) {
     return <Loading />;
   }
@@ -36,6 +36,7 @@ const Overzicht = () => {
       </div>
       <div className="row">
         {error && <div className="alert bg-danger">{error.message}</div>}
+      
         {animes.map((anime, key) => {
           const { testimage, title, description, characters } = anime;
 

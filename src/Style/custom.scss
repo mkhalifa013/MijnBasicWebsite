@@ -39,6 +39,17 @@ $navbar-height: 104px;
   margin-top: 140px !important;
 }
 
+.bg-dark.usercont {
+  width: 900px;
+}
+.btn.imageuser{
+    z-index: 3;
+    position: absolute;
+    float: inherit;
+    margin-right: 55px;
+    display: block;
+}
+
 /* ==========================================================================
 Loader
 ========================================================================== */

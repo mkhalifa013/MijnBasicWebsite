@@ -18,7 +18,7 @@ export default () => (
     </li>
     <li className="nav-item">
       <NavLink className="nav-link" activeClassName="active" to="/register">
-        register
+        Register
       </NavLink>
     </li>
   </ul>
